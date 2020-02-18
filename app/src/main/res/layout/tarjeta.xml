@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="user"
+            type="com.uninorte.cardview.data.User" />
+    </data>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="4dp"
+        app:cardUseCompatPadding="true"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:id="@+id/primer_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/tvTittle"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="2"
+                    android:layout_marginLeft="10dp"
+                    android:text="@{user.tittle}"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvNombre"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="2"
+                    android:layout_marginLeft="10dp"
+                    android:text="@{user.first}"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvApellido"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="2"
+                    android:layout_marginLeft="10dp"
+                    android:text="@{user.last}"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/segundo_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@+id/primer_layout"
+                >
+            <TextView
+                android:id="@+id/tvEmail"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="2"
+                android:layout_marginLeft="10dp"
+                android:text="@{user.email}"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tercer_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@+id/segundo_layout"
+                >
+                <TextView
+                    android:id="@+id/tvTelefono"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="2"
+                    android:layout_marginLeft="10dp"
+                    android:text="@{user.phone}"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>
+</layout>
