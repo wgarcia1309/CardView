@@ -1,14 +1,15 @@
-package com.uninorte.k_recycleview_video
+package com.uninorte.cardview
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.uninorte.cardview.R
 import com.uninorte.cardview.data.User
 import com.uninorte.cardview.databinding.TarjetaBinding
 
-class UserAdapter(private val mValues: List<User>)
+class UserAdapter(val listener: OnListInteraction ,private val mValues: List<User>)
     : RecyclerView.Adapter<UserAdapter.ViewHolder>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -25,6 +26,9 @@ class UserAdapter(private val mValues: List<User>)
         val item = mValues[position]
         holder.mView.user = item
         holder.mView.executePendingBindings()
+        holder.mView.tvFirst.setOnClickListener{
+            listener.onCardClicked(item)
+        }
     }
 
     public fun updateData(){
@@ -32,8 +36,12 @@ class UserAdapter(private val mValues: List<User>)
     }
 
     inner class ViewHolder(val mView: TarjetaBinding): RecyclerView.ViewHolder(mView.root){
+        val nombre : TextView = mView.tvFirst
+        val apellido : TextView = mView.tvLast
 
     }
 
-
+    interface OnListInteraction{
+        fun onCardClicked(user: User?)
+    }
 }
